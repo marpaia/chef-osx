@@ -6,7 +6,7 @@
 ###
 
 # The company name - used for SSL certificates, and in srvious other places
-COMPANY_NAME = "Example Com"
+COMPANY_NAME = "MikeArpaia"
 
 # The Country Name to use for SSL Certificates
 SSL_COUNTRY_NAME = "US"
@@ -18,17 +18,17 @@ SSL_STATE_NAME = "Several"
 SSL_LOCALITY_NAME = "Locality"
 
 # What department?
-SSL_ORGANIZATIONAL_UNIT_NAME = "Operations"
+SSL_ORGANIZATIONAL_UNIT_NAME = "Security"
 
 # The SSL contact email address
-SSL_EMAIL_ADDRESS = "ops@example.com"
+SSL_EMAIL_ADDRESS = "mike@arpaia.co"
 
 # License for new Cookbooks
 # Can be :apachev2 or :none
 NEW_COOKBOOK_LICENSE = :apachev2
 
 ###
-# Useful Extras (which you probably don't need to change)
+# Useful Extras
 ###
 
 # The top of the repository checkout
