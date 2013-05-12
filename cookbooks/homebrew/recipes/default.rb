@@ -4,7 +4,7 @@ execute "install homebrew" do
   not_if { File.exist? '/usr/local/bin/brew' }
 end
 
-package 'git'
+#package 'git'
 
 execute "update homebrew from github" do
   command "/usr/local/bin/brew update || true"
