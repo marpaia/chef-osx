@@ -3,6 +3,10 @@ description "Role applied to Mac OS X systems."
 run_list(
   "recipe[homebrew]",
   "recipe[1password]",
-  #"recipe[dropbox]",
-  #"recipe[googlechrome]"
+  "recipe[dmg]",
+  "recipe[tunnelblick]",
+  "recipe[dropbox]",
+  "recipe[googlechrome]",
+  "recipe[mac_os_x]",
+  "recipe[iterm2]",
 )
