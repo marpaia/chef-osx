@@ -1,54 +1,25 @@
-#
-# Cookbook Name:: mac_os_x
-# Recipe:: finder
-#
-# Author:: Joshua Timberman <opensource@housepub.org>
-# Copyright:: Copyright (c) 2011, Joshua Timberman
-# License:: Apache License, Version 2.0
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-
-mac_os_x_userdefaults "finder expanded save dialogs" do
+mac_os_x_userdefaults "com.apple.finder NSNavPanelExpandedStateForSaveMode" do
+  domain "com.apple.finder"
   key "NSNavPanelExpandedStateForSaveMode"
-  type "bool"
-  value true
-  global true
+  value "1"
 end
 
-mac_os_x_userdefaults "dont show hard drives on the desktop" do
+mac_os_x_userdefaults "com.apple.finder ShowHardDrivesOnDesktop" do
   domain "com.apple.finder"
   key "ShowHardDrivesOnDesktop"
-  value false
-  type "bool"
+  value 0
 end
 
-mac_os_x_userdefaults "show all files in Finder" do
+mac_os_x_userdefaults "com.apple.finder AppleShowAllFiles" do
   domain "com.apple.finder"
   key "AppleShowAllFiles"
-  value false
-  type "bool"
+  value 0
 end
 
-# TODO:
-# com.apple.finder:
-# StandardViewSettings = {
-#   ExtendedListViewSettings = {
-#     showIconPreview = 0;
-#     useRelativeDates = 0;
-#   };
-#   ListViewSettings = {
-#     showIconPreview = 0;
-#     useRelativeDates = 0;
-#   };
-# }
+execute "com.apple.finder iconSize" do
+  command '/usr/libexec/PlistBuddy -c "set DesktopViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist'
+end
+
+execute "com.apple.finder arrangeBy" do
+  command '/usr/libexec/PlistBuddy -c "set DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist'
+end
