@@ -1,0 +1,32 @@
+{
+  "name": "googledrive",
+  "description": "Installs Google Drive",
+  "long_description": "Installs Google Drive",
+  "maintainer": "Mike Arpaia",
+  "maintainer_email": "mike@arpaia.co",
+  "license": "Apache 2.0",
+  "platforms": {
+    "mac_os_x": [
+
+    ]
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "1.0.0"
+}

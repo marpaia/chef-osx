@@ -16,5 +16,6 @@ run_list(
   "recipe[iterm2]",
   "recipe[divvy]",
   "recipe[bettersnaptool]",
-  "recipe[alfred2]"
+  "recipe[alfred2]",
+  "recipe[googledrive]"
 )
