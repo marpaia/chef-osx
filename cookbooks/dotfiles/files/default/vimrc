@@ -1,0 +1,178 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Dependencies                                                                " 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim pathogen
+"   https://github.com/tpope/vim-pathogen
+
+" NERDTree
+"   https://github.com/scrooloose/nerdtree
+
+" vim fugitive
+"   https://github.com/tpope/vim-fugitive
+
+" ctl-p
+"   https://github.com/kien/ctrlp.vim
+
+" exuberant ctags
+"   http://ctags.sourceforge.net/
+
+" cscope
+"   sudo port install cscope
+"   http://cscope.sourceforge.net/ (project web page)
+"   http://cscope.sourceforge.net/cscope_maps.vim (add to ~/.vim/bundle/)
+"   vim tutorial: http://cscope.sourceforge.net/cscope_vim_tutorial.html
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General viewing                                                             "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fix backspace
+set backspace=start,eol,indent
+
+" make it prettier
+set background=dark
+
+" pathogen
+call pathogen#infect()
+
+"Git branch
+function! GitBranch()
+    let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
+    if branch != ''
+        return '(' . substitute(branch, '\n', '', 'g') . ')'
+    en
+    return ''
+endfunction
+
+" Format the statusline
+set statusline=%F%m%r%h%w\%{GitBranch()}\ [LINE=%l(%v)]\ [%p%%]\ [LEN=%L]\ [FORMAT=%{&ff}]\ [TYPE=%Y]
+" set statusline=%F%m%r%h%w\ [POS=%l,%v]\ [%p%%]\ [LEN=%L]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [HEX=\%02.2B]
+
+" makes sure the status line displays automatically
+set laststatus=2
+
+" set the text width to be 80 characters
+" set textwidth=80
+
+" set the bar to be at one character greater than the text width (81)
+" set cc=+1
+
+" turn on syntax highlighting
+syntax on
+
+" set terminal title to file name
+set title
+
+" set colorscheme
+" colorscheme evening
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
+
+" Ignore case when searching
+set ignorecase
+
+" Highlight search results
+set hlsearch
+
+" Automatically display line number
+set number
+
+" faster find for ctl-p
+let g:ctrlp_user_command = 'find %s -type f'  
+
+" set ignore directories for ctl-p
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General code writing                                                        "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" fold based on indent
+set foldmethod=indent
+
+" deepest fold is 10 levels
+set foldnestmax=10
+
+" dont fold by default
+set nofoldenable
+
+" set the foldlevel
+" set foldlevel=1
+
+" PHP auto-complete
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key maps                                                                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turning off the <F1> help
+nmap <F1> <nop>
+
+" toggle NERDTree
+nmap <F1> :NERDTreeToggle<CR>
+
+" switch between NERDTree and the open file
+map <F2> <C-w><C-w> 
+
+" tab left
+map <F3> gT
+
+" tab right
+map <F4> gt
+
+" toggle line numbers
+map <F5> :set number!<CR> :set foldcolumn=0<CR>
+
+" word wrap
+map <F6> gwap
+
+" turn on spell checking
+map <F7> :set paste!<CR>
+
+" run the file
+au BufEnter,BufNew *.php map <F8> :w<CR>:!clear && php %<CR>
+au BufEnter,BufNew *.py map <F8> :w<CR>:!clear && python %<CR>
+au BufEnter,BufNew *.rb map <F8> :w<CR>:!clear && ruby %<CR>
+au BufEnter,BufNew *.io map <F8> :w<CR>:!clear && io %<CR>
+au BufEnter,BufNew *.sh map <F8> :w<CR>:!clear && bash %<CR>
+
+" jump back one word
+map <F9> b
+
+" jump forward one wordd
+map <F10> w
+
+" jump to the beginning of the line
+map <F11> 0
+
+" jump to the end of the line
+map <F12> $
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation and spacing                                                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" smartindent inserts one extra level of indentation when appropriate
+set smartindent
+
+" autoindent copies the indentation from the previous line,
+set autoindent
+
+" tabstop changes the width of the tab character
+set tabstop=4
+au BufEnter,BufNew *.rb set tabstop=2
+
+" expandtab inserts spaces whenever the tab key is pressed
+set expandtab
+
+" shiftwidth changes the number of space characters inserted for indentation
+set shiftwidth=4
+au BufEnter,BufNew *.rb set shiftwidth=2
+
+" softtabstop makes the backspace key treat the four spaces like a tab
+set softtabstop=4
+au BufEnter,BufNew *.rb set softtabstop=2

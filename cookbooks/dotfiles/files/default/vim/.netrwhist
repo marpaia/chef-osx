@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/marpaia/github/chef-osx/cookbooks/tunnelblick'
+let g:netrw_dirhist_2='/Users/marpaia/github/chef-osx/cookbooks/iterm2/attributes'
+let g:netrw_dirhist_3='/Users/marpaia/github/chef-osx/cookbooks/mac_os_x'
