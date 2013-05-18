@@ -15,6 +15,7 @@ run_list(
   "recipe[mac_os_x::finder]",
   "recipe[mac_os_x::firewall]",
   "recipe[mac_os_x::screensaver]",
+  "recipe[mac_os_x::accessibility]",
   "recipe[iterm2]",
   "recipe[divvy]",
   "recipe[bettersnaptool]",
@@ -23,5 +24,6 @@ run_list(
   "recipe[dotfiles]",
   "recipe[rvm]",
   "recipe[rvm::rubies]",
-  "recipe[rvm::gems]"
+  "recipe[rvm::gems]",
+  "recipe[memcached]"
 )
