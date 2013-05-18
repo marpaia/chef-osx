@@ -12,3 +12,8 @@ package "php54-memcached" do
   action :install
   version "2.1.0"
 end
+
+package "php54-solr" do
+  action :install
+  version "1.0.2"
+end
