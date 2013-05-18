@@ -1,6 +1,7 @@
 name "mac_os_x"
 description "Role applied to Mac OS X systems."
 run_list(
+  "recipe[mac_os_x]",
   "recipe[mac_os_x::dock]",
   "recipe[mac_os_x::firewall]",
   "recipe[mac_os_x::finder]",
@@ -32,5 +33,7 @@ run_list(
   "recipe[php]",
   "recipe[php::php53]",
   "recipe[php::php54]",
-  "recipe[mac_os_x]",
+  "recipe[commandlinetools::python]",
+  "recipe[python]",
+  "recipe[python::pip]"
 )

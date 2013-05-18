@@ -96,7 +96,7 @@ export GREP_OPTIONS='--color=auto'
 export SVN_EDITOR=vim
 export EDITOR=vim
 export MANPATH=/opt/local/share/man:$MANPATH
-export PATH=~/Tools/casper/bin:~/pear/bin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:~/bin:~/github/phantomjs/bin:/opt/chef/bin/:$PATH
+export PATH=/usr/local/share/python:~/Tools/casper/bin:~/pear/bin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:~/bin:~/github/phantomjs/bin:/opt/chef/bin/:$PATH
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 
