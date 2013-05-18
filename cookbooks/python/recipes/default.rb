@@ -16,7 +16,7 @@ execute "remove default python" do
 end
 
 execute "create python symlink" do
-  command "sudo ln -s /usr/local/Cellar/python/#{node['python']['version']}/Frameworks/Python.framework/Versions/Current /System/Library/Frameworks/Python.framework/Versions/Current"
+  command "sudo ln -sf /usr/local/Cellar/python/#{node['python']['version']}/Frameworks/Python.framework/Versions/Current /System/Library/Frameworks/Python.framework/Versions/Current"
   not_if { ::File.directory?("/System/Library/Frameworks/Python.framework/Versions/Current") }
 end
 
