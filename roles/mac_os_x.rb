@@ -3,7 +3,10 @@ description "Role applied to Mac OS X systems."
 run_list(
   "recipe[xcode::select]",
   "recipe[homebrew]",
-  "recipe[commandlinetools]",
+  "recipe[commandlinetools::rvm]",
+  "recipe[commandlinetools::php]",
+  "recipe[commandlinetools::security]",
+  "recipe[commandlinetools::general]",
   "recipe[1password]",
   "recipe[dmg]",
   "recipe[tunnelblick]",
@@ -25,5 +28,8 @@ run_list(
   "recipe[rvm]",
   "recipe[rvm::rubies]",
   "recipe[rvm::gems]",
-  "recipe[memcached]"
+  "recipe[memcached]",
+  "recipe[php]",
+  "recipe[php::php53]",
+  "recipe[php::php54]"
 )
