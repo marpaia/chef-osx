@@ -120,5 +120,4 @@ PS1="$begin$white[$green$username$white@$red$hostname$white] $blue$currentDirect
 #Source Things
 if [ -f ~/github/dot-files/dot-files-etsy/bashrc ]; then . ~/github/dot-files/dot-files-etsy/bashrc; fi
 if [ -f  ~/.git-completion.bash ]; then . ~/.git-completion.bash; fi
-
-[[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm"
+if [ -f ~/.rvm/scripts/rvm ]; then source ~/.rvm/scripts/rvm; fi
