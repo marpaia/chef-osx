@@ -30,6 +30,7 @@ run_list(
   "recipe[memcached]",
   "recipe[commandlinetools::php]",
   "recipe[solr]",
+  "recipe[jetty]",
   "recipe[php]",
   "recipe[php::php53]",
   "recipe[php::php54]",
