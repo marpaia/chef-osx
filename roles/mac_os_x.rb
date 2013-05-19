@@ -17,6 +17,7 @@ run_list(
   "recipe[dmg]",
   "recipe[tunnelblick]",
   "recipe[dropbox]",
+  "recipe[mou]",
   "recipe[googlechrome]",
   "recipe[iterm2]",
   "recipe[divvy]",
