@@ -22,6 +22,7 @@ run_list(
   "recipe[bettersnaptool]",
   "recipe[alfred2]",
   "recipe[googledrive]",
+  "recipe[gpg]",
   "recipe[dotfiles]",
   "recipe[commandlinetools::rvm]",
   "recipe[rvm]",
