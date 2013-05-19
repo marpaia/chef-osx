@@ -29,6 +29,7 @@ run_list(
   "recipe[rvm::rubies]",
   "recipe[rvm::gems]",
   "recipe[rails]",
+  "recipe[apache]",
   "recipe[passenger]",
   "recipe[passenger::apache]",
   "recipe[memcached]",
