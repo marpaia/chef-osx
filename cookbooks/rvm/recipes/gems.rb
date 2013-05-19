@@ -5,5 +5,5 @@ end
 
 execute "install sinatra gem" do
   command "gem install sinatra"
-  not_id "gem list | grep sinatra"
+  not_if "gem list | grep sinatra"
 end
