@@ -4,6 +4,12 @@ mac_os_x_userdefaults "com.apple.finder NSNavPanelExpandedStateForSaveMode" do
   value "1"
 end
 
+mac_os_x_userdefaults "com.apple.finder QLEnableTextSelection" do
+  domain "com.apple.finder"
+  key "QLEnableTextSelection"
+  value "1"
+end
+
 mac_os_x_userdefaults "com.apple.finder ShowHardDrivesOnDesktop" do
   domain "com.apple.finder"
   key "ShowHardDrivesOnDesktop"
@@ -22,4 +28,16 @@ end
 
 execute "com.apple.finder arrangeBy" do
   command '/usr/libexec/PlistBuddy -c "set DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist'
+end
+
+mac_os_x_userdefaults "com.apple.finder FXEnableExtensionChangeWarning" do
+  domain "com.apple.finder"
+  key "FXEnableExtensionChangeWarning"
+  value "1"
+end
+
+mac_os_x_userdefaults "com.apple.finder WarnOnEmptyTrash" do
+  domain "com.apple.finder"
+  key "WarnOnEmptyTrash"
+  value "0"
 end

@@ -35,6 +35,12 @@ mac_os_x_userdefaults "com.apple.dock orientation" do
   value "left"
 end
 
+mac_os_x_userdefaults "com.apple.dock dashboard-in-overlay" do
+  domain "com.apple.dock"
+  key "dashboard-in-overlay"
+  value 1
+end
+
 execute "killall Dock" do
   command "killall Dock"
 end

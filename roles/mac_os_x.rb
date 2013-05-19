@@ -4,6 +4,7 @@ run_list(
   "recipe[chefconfig]",
   "recipe[github]",
   "recipe[mac_os_x]",
+  "recipe[mac_os_x::general]",
   "recipe[mac_os_x::dock]",
   "recipe[mac_os_x::firewall]",
   "recipe[mac_os_x::finder]",
