@@ -10,6 +10,7 @@ run_list(
   "recipe[mac_os_x::security]",
   "recipe[mac_os_x::screensaver]",
   "recipe[mac_os_x::accessibility]",
+  "recipe[fonts]",
   "recipe[xcode::select]",
   "recipe[homebrew]",
   "recipe[commandlinetools::security]",
