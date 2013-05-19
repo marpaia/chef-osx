@@ -4,6 +4,12 @@ mac_os_x_userdefaults "NSGlobalDomain AppleShowAllExtensions" do
   value "1"
 end
 
+mac_os_x_userdefaults "NSGlobalDomain com.apple.keyboard.fnState" do
+  domain "NSGlobalDomain"
+  key "com.apple.keyboard.fnState"
+  value "0"
+end
+
 mac_os_x_userdefaults "NSGlobalDomain NSNavPanelExpandedStateForSaveMode" do
   domain "NSGlobalDomain"
   key "NSNavPanelExpandedStateForSaveMode"
@@ -70,6 +76,10 @@ end
 
 execute "hide time machine" do
   command 'defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Displays.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"'
+end
+
+cookbook_file "#{ENV['HOME']}/Library/Preferences/com.apple.symbolichotkeys.plist" do
+  source "com.apple.symbolichotkeys.plist"
 end
 
 execute "killall SystemUIServer" do

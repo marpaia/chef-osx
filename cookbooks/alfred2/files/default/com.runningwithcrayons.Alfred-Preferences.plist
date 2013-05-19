@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSWindow Frame alfredpreferences</key>
-	<string>21 357 1100 662 0 0 1920 1178 </string>
+	<string>9 149 1100 662 0 0 1440 878 </string>
 	<key>appearance.theme</key>
 	<string>alfred.theme.lightlarge</string>
 	<key>features.1password.enabled</key>
@@ -20,11 +20,11 @@
 		<string>Space</string>
 	</dict>
 	<key>lastTab</key>
-	<string>general</string>
+	<string>appearance</string>
 	<key>lastTabBuild</key>
 	<string>187</string>
 	<key>lastTabTS</key>
-	<real>389159206.986763</real>
+	<real>390645376.63146901</real>
 	<key>version</key>
 	<string>2.0.3</string>
 </dict>
