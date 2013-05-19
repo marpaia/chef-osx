@@ -4,7 +4,7 @@ execute "own /etc/apache2" do
 end
 
 execute "own /etc/hosts" do
-  command "sudo chown `whoami`:staff /etc/hosts"
+  command "sudo chown `whoami`:staff /etc/hosts; sudo apachectl graceful"
   not_if "ls -l /private/etc/ | grep hosts | grep `whoami`"
 end
 
@@ -18,8 +18,4 @@ end
 
 cookbook_file "/etc/hosts" do
   source "hosts"
-end
-
-execute "apache reload" do
-  command "sudo apachectl graceful"
 end
