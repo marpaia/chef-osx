@@ -28,6 +28,8 @@ run_list(
   "recipe[rvm]",
   "recipe[rvm::rubies]",
   "recipe[rvm::gems]",
+  "recipe[passenger]",
+  "recipe[passenger::apache]",
   "recipe[memcached]",
   "recipe[commandlinetools::php]",
   "recipe[solr]",
