@@ -1,11 +1,11 @@
 execute "own /etc/apache2" do
   command "sudo chown -R `whoami`:staff /etc/apache2"
-  only_if "ls -l /private/etc/ | grep apache2 | grep `whoami`"
+  not_if "ls -l /private/etc/ | grep apache2 | grep `whoami`"
 end
 
 execute "own /etc/hosts" do
   command "sudo chown `whoami`:staff /etc/hosts"
-  only_if "ls -l /private/etc/ | grep hosts | grep `whoami`"
+  not_if "ls -l /private/etc/ | grep hosts | grep `whoami`"
 end
 
 cookbook_file "/etc/apache2/httpd.conf" do
@@ -22,8 +22,4 @@ end
 
 execute "apache reload" do
   command "sudo apachectl graceful"
-end
-
-remote_directory "#{ENV['HOME']}/www" do
-  source "www"
 end

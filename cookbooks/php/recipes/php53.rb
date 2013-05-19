@@ -17,3 +17,8 @@ package "php53-solr" do
   action :install
   version "1.0.2"
 end
+
+package "php53-mcrypt" do
+  action :install
+  version "5.3.25"
+end

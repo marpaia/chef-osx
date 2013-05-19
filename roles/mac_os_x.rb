@@ -40,8 +40,9 @@ run_list(
   "recipe[mysql]",
   "recipe[mysql::tools]",
   "recipe[php]",
-  "recipe[php::php53]",
   "recipe[php::php54]",
+  "recipe[php::php53]",
+  "recipe[laravel]",
   "recipe[commandlinetools::python]",
   "recipe[python]",
   "recipe[python::pip]"
