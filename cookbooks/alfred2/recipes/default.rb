@@ -27,3 +27,18 @@ remote_directory "#{ENV['HOME']}/Library/Application Support/Alfred 2/Alfred.alf
   source "websearch"
   only_if { ::File.directory?("/Applications/Alfred 2.app") }
 end
+
+remote_directory "#{ENV['HOME']}/Library/Application Support/Alfred 2/Alfred.alfredpreferences/preferences/features/clipboard" do
+  source "clipboard"
+  only_if { ::File.directory?("/Applications/Alfred 2.app") }
+end
+
+remote_directory "#{ENV['HOME']}/Library/Application Support/Alfred 2/Alfred.alfredpreferences/preferences/appearance" do
+  source "appearance"
+  only_if { ::File.directory?("/Applications/Alfred 2.app") }
+end
+
+remote_directory "#{ENV['HOME']}/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows" do
+  source "workflows"
+  only_if { ::File.directory?("/Applications/Alfred 2.app") }
+end
