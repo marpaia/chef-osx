@@ -22,3 +22,8 @@ cookbook_file "#{ENV['HOME']}/Library/Preferences/com.runningwithcrayons.Alfred-
   source "com.runningwithcrayons.Alfred-Preferences.plist"
   only_if { ::File.directory?("/Applications/Alfred 2.app") }
 end
+
+remote_directory "#{ENV['HOME']}/Library/Application Support/Alfred 2/Alfred.alfredpreferences/preferences/features/websearch" do
+  source "websearch"
+  only_if { ::File.directory?("/Applications/Alfred 2.app") }
+end
