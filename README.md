@@ -9,4 +9,4 @@ To use
 
 Considerations
 ==============
-I run chef as my own user, not root, so you have to have the permissions to own certain directories. Notably, `/var/chef` and `/usr/local`.
+I run chef as my own user, not root, so you have to have the permissions to modify certain directories. Notably, `/var/chef` and `/usr/local`.
