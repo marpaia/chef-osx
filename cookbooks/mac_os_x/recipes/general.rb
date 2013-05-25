@@ -4,12 +4,6 @@ mac_os_x_userdefaults "NSGlobalDomain AppleShowAllExtensions" do
   value "1"
 end
 
-mac_os_x_userdefaults "NSGlobalDomain com.apple.keyboard.fnState" do
-  domain "NSGlobalDomain"
-  key "com.apple.keyboard.fnState"
-  value "0"
-end
-
 mac_os_x_userdefaults "NSGlobalDomain NSNavPanelExpandedStateForSaveMode" do
   domain "NSGlobalDomain"
   key "NSNavPanelExpandedStateForSaveMode"
@@ -19,12 +13,6 @@ end
 mac_os_x_userdefaults "NSGlobalDomain NSTableViewDefaultSizeMode" do
   domain "NSGlobalDomain"
   key "NSTableViewDefaultSizeMode"
-  value "1"
-end
-
-mac_os_x_userdefaults "com.apple.menuextra.battery ShowPercent" do
-  domain "com.apple.menuextra.battery"
-  key "ShowPercent"
   value "1"
 end
 

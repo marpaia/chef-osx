@@ -1,7 +1,6 @@
 name "mac_os_x"
 description "Role applied to Mac OS X systems."
 run_list(
-  "recipe[chefconfig]",
   "recipe[github]",
   "recipe[mac_os_x]",
   "recipe[mac_os_x::general]",
@@ -33,6 +32,7 @@ run_list(
   "recipe[rvm]",
   "recipe[rvm::rubies]",
   "recipe[rvm::gems]",
+  "recipe[chefconfig]",
   "recipe[rails]",
   "recipe[apache]",
   "recipe[passenger]",
