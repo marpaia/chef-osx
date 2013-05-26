@@ -50,5 +50,6 @@ run_list(
   "recipe[laravel]",
   "recipe[commandlinetools::python]",
   "recipe[python]",
-  "recipe[python::pip]"
+  "recipe[python::pip]",
+  "recipe[python::docs]"
 )
