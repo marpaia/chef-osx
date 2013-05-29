@@ -12,3 +12,8 @@ package "ack" do
   action :install
   version "2.04"
 end
+
+package "hg" do
+  action :install
+  version "2.6.1"
+end
