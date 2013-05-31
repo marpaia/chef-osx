@@ -106,6 +106,9 @@ set nofoldenable
 " PHP auto-complete
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
+" set filetype for go files
+au BufRead,BufNewFile *.go set filetype=go
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key maps                                                                    "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

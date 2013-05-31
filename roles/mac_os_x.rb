@@ -51,5 +51,6 @@ run_list(
   "recipe[commandlinetools::python]",
   "recipe[python]",
   "recipe[python::pip]",
-  "recipe[python::docs]"
+  "recipe[python::docs]",
+  "recipe[go]"
 )

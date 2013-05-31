@@ -12,6 +12,8 @@ dev(){ cd ~/development/; }
 
 dope(){ echo "no doubt"; }
 
+t(){ tail -f $1 | lolcat; }
+
 function swap()
 { # Swap 2 filenames around, if they exist (from Uzi's bashrc).
     local TMPFILE=tmp.$$
