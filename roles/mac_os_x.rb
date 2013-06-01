@@ -52,5 +52,6 @@ run_list(
   "recipe[python]",
   "recipe[python::pip]",
   "recipe[python::docs]",
+  "recipe[python::pylint]",
   "recipe[go]"
 )
