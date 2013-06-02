@@ -2,9 +2,20 @@
 function git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_AHEAD_PREFIX$(parse_git_ahead)$ZSH_THEME_GIT_PROMPT_AHEAD_SUFFIX$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
+
+# Number of commits ahead
+parse_git_ahead() {
+  local GIT_COMMITS_AHEAD=''
+  if [[ "$(git config --get oh-my-zsh.hide-status)" != "1" ]]; then
+    GIT_COMMITS_AHEAD=$(git status | grep 'Your branch is ahead' | awk {'print $9'})
+    if [[ $GIT_COMMITS_AHEAD != '' ]]; then
+      echo " +$GIT_COMMITS_AHEAD"
+    fi
+  fi
+}
 
 # Checks if working tree is dirty
 parse_git_dirty() {
