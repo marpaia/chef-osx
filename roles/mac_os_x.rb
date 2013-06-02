@@ -25,6 +25,7 @@ run_list(
   "recipe[alfred2]",
   "recipe[googledrive]",
   "recipe[gpg]",
+  "recipe[commandlinetools::tmux]",
   "recipe[dotfiles]",
   "recipe[zsh]",
   "recipe[commandlinetools::weechat]",

@@ -13,3 +13,8 @@ end
 remote_directory "#{ENV['HOME']}/.vim" do
   source "vim"
 end
+
+package "tmux" do
+  action :install
+  version "1.8"
+end
