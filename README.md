@@ -13,4 +13,4 @@ I run Chef as my own user, not root, so you have to have the permissions to modi
 
 Disclaimer
 ==========
-Although I fully encourage anyone and everyone to manage the configurations of their computers with a configuration management framework like Chef, this is a very customized and personalized Chef repository. Don't blindy run the `mac_os_x` role on your computer without fully understanding what each recipe in the runlist does. A Chef run may irrevocably change the configurations of your computer.
+Although I fully encourage anyone and everyone to manage the configurations of their computers with a configuration management framework like Chef, this is a very customized and personalized Chef repository. Don't blindy run the `mac_os_x` role on your computer without fully understanding what each recipe in the runlist does. A Chef run may irrevocably change the configurations of your computer and that could be undesirable.
