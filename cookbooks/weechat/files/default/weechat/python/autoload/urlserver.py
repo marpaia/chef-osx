@@ -147,7 +147,7 @@ urlserver_settings_default = {
     'http_title'         : ('WeeChat URLs', 'title of the HTML page'),
     'http_time_format'   : ('%d/%m/%y %H:%M:%S', 'time format in the HTML page'),
     # message filter settings
-    'msg_ignore_buffers' : ('core.weechat,python.grep', 'comma-separated list (without spaces) of buffers to ignore (full name like "irc.freenode.#weechat")'),
+    'msg_ignore_buffers' : ('perl.chanmon,irc.etsy.#chef', 'comma-separated list (without spaces) of buffers to ignore (full name like "irc.freenode.#weechat")'),
     'msg_ignore_tags'    : ('irc_quit,irc_part,notify_none', 'comma-separated list (without spaces) of tags (or beginning of tags) to ignore (for example, use "notify_none" to ignore self messages or "nick_weebot" to ignore messages from nick "weebot")'),
     'msg_require_tags'   : ('nick_', 'comma-separated list (without spaces) of tags (or beginning of tags) required to shorten URLs (for example "nick_" to shorten URLs only in messages from other users)'),
     'msg_ignore_regex'   : ('', 'ignore messages matching this regex'),
