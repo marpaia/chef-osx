@@ -1,0 +1,1 @@
+export PATH=/usr/local/Cellar/php54/5.4.15/bin/:/usr/local/share/python:~/Tools/casper/bin:~/pear/bin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:~/bin:~/github/phantomjs/bin:/opt/chef/bin/:$PATH

@@ -1,7 +1,3 @@
-cookbook_file "#{ENV['HOME']}/.bash_profile" do
-  source "bashrc"
-end
-
 cookbook_file "#{ENV['HOME']}/.vimrc" do
   source "vimrc"
 end

@@ -26,6 +26,7 @@ run_list(
   "recipe[googledrive]",
   "recipe[gpg]",
   "recipe[dotfiles]",
+  "recipe[zsh]",
   "recipe[commandlinetools::weechat]",
   "recipe[weechat]",
   "recipe[spotify]",

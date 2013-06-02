@@ -17,3 +17,8 @@ execute "install lolcat gem" do
   command "gem install lolcat"
   not_if "gem list | grep lolcat"
 end
+
+execute "install github gem" do
+  command "gem install github"
+  not_if "gem list | grep github"
+end
