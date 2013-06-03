@@ -58,5 +58,6 @@ run_list(
   "recipe[python::docs]",
   "recipe[python::pylint]",
   "recipe[go]",
-  "recipe[github]"
+  "recipe[github]",
+  "recipe[casperjs]"
 )
