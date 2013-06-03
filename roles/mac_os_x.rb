@@ -1,6 +1,8 @@
 name "mac_os_x"
 description "Role applied to Mac OS X systems."
 run_list(
+  "recipe[filesystem]",
+  "recipe[burp]",
   "recipe[mac_os_x]",
   "recipe[mac_os_x::general]",
   "recipe[mac_os_x::dock]",
