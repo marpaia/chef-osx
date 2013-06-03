@@ -1,0 +1,11 @@
+Host vm
+    HostName marpaia.vm.ny4dev.etsy.com
+    User marpaia
+
+Host sec03
+    HostName sec03.ny4dev.etsy.com
+    User marpaia
+
+Host sec01
+    HostName sec01.ny4.etsy.com
+    User marpaia
