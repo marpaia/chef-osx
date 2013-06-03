@@ -22,3 +22,8 @@ execute "install github gem" do
   command "gem install github"
   not_if "gem list | grep github"
 end
+
+execute "install gist gem" do
+  command "gem install gist"
+  not_if "gem list | grep gist"
+end
