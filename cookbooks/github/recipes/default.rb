@@ -1,4 +1,6 @@
-remote_directory "#{ENV['HOME']}/github" do
-  source "github"
-  not_if { File.directory?("#{ENV['HOME']}/github") }
+directory "#{ENV['HOME']}/github" do
+  owner ENV['USER']
+  group "staff"
+  mode "0700"
+  recursive true
 end

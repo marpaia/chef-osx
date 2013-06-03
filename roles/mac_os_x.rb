@@ -1,7 +1,6 @@
 name "mac_os_x"
 description "Role applied to Mac OS X systems."
 run_list(
-  "recipe[github]",
   "recipe[mac_os_x]",
   "recipe[mac_os_x::general]",
   "recipe[mac_os_x::dock]",
@@ -56,5 +55,6 @@ run_list(
   "recipe[python::pip]",
   "recipe[python::docs]",
   "recipe[python::pylint]",
-  "recipe[go]"
+  "recipe[go]",
+  "recipe[github]"
 )
