@@ -27,3 +27,8 @@ execute "install gist gem" do
   command "gem install gist"
   not_if "gem list | grep gist"
 end
+
+execute "install bundler gem" do
+  command "gem install bundler"
+  not_if "gem list | grep bundler"
+end
