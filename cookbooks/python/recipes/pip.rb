@@ -17,3 +17,5 @@ python_pip "gntp"
 python_pip "SQLAlchemy"
 
 python_pip "Flask"
+
+python_pip "MySQL-python"
