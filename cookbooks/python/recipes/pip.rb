@@ -13,3 +13,7 @@ python_pip "ipython"
 python_pip "python-potr"
 
 python_pip "gntp"
+
+python_pip "SQLAlchemy"
+
+python_pip "Flask"
