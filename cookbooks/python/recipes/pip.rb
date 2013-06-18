@@ -19,3 +19,7 @@ python_pip "SQLAlchemy"
 python_pip "Flask"
 
 python_pip "MySQL-python"
+
+python_pip "httplib2"
+
+python_pip "pygeoip"
