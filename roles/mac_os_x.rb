@@ -16,6 +16,7 @@ run_list(
   "recipe[commandlinetools::security]",
   "recipe[commandlinetools::general]",
   "recipe[dmg]",
+  "recipe[osx_pkg]",
   "recipe[tunnelblick]",
   "recipe[dropbox]",
   "recipe[mou]",
@@ -60,5 +61,6 @@ run_list(
   "recipe[go]",
   "recipe[github]",
   "recipe[github::repos]",
-  "recipe[casperjs]"
+  "recipe[casperjs]",
+  "recipe[r]"
 )
