@@ -25,3 +25,7 @@ python_pip "httplib2"
 python_pip "pygeoip"
 
 python_pip "PyChecker"
+
+python_pip "matplotlib"
+
+python_pip "sympy"
