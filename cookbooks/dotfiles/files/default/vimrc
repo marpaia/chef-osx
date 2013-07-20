@@ -88,7 +88,7 @@ set number
 let g:ctrlp_user_command = 'find %s -type f'
 
 " set ignore directories for ctl-p
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*,*/.hg/*,*/.svn/*
 
 " Relative number toggling
 function! NumberToggle()
