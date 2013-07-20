@@ -39,6 +39,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'anzaika/go.vim'
+Bundle 'scrooloose/syntastic'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General viewing                                                             "
@@ -49,41 +50,17 @@ set backspace=start,eol,indent
 " make it prettier
 set background=dark
 
-" pathogen
-" call pathogen#infect()
-
-"Git branch
-function! GitBranch()
-    let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
-    if branch != ''
-        return '(' . substitute(branch, '\n', '', 'g') . ')'
-    en
-    return ''
-endfunction
-
-" Format the statusline
-" set statusline=%F%m%r%h%w\%{GitBranch()}\ [LINE=%l(%v)]\ [%p%%]\ [LEN=%L]\ [FORMAT=%{&ff}]\ [TYPE=%Y]
-
 " makes sure the status line displays automatically
 set laststatus=2
 
 " setup powerline symbols
 let g:Powerline_symbols = 'unicode'
 
-" set the text width to be 80 characters
-" set textwidth=80
-
-" set the bar to be at one character greater than the text width (81)
-" set cc=+1
-
 " turn on syntax highlighting
 syntax on
 
 " set terminal title to file name
 set title
-
-" set colorscheme
-" colorscheme evening
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -101,10 +78,33 @@ set hlsearch
 set number
 
 " faster find for ctl-p
-let g:ctrlp_user_command = 'find %s -type f'  
+let g:ctrlp_user_command = 'find %s -type f'
 
 " set ignore directories for ctl-p
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+" Relative number toggling
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
+" Show and clear all extraneous whitespace automatically
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+autocmd BufWritePre * :%s/\s\+$//e
+
+" for Smarty
+au BufRead,BufNewFile *.tpl set filetype=smarty
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General code writing                                                        "
@@ -138,7 +138,7 @@ nmap <F1> <nop>
 nmap <F1> :NERDTreeToggle<CR>
 
 " switch between NERDTree and the open file
-map <F2> <C-w><C-w> 
+map <F2> <C-w><C-w>
 
 " tab left
 map <F3> gT
@@ -173,6 +173,20 @@ map <F11> 0
 
 " jump to the end of the line
 map <F12> $
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic                                                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+"let g:syntastic_check_on_open=1
+"let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation and spacing                                                     "
