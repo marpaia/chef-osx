@@ -21,6 +21,7 @@ if !filereadable(vundle_readme)
     echo ""
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    " silent !vim +BundleInstall +qall
     let installVundle=0
 endif
 
