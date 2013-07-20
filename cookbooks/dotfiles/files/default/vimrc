@@ -1,27 +1,44 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Dependencies                                                                " 
+" Initial setup                                                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let createVimDir=1
+let vim_dir=expand('~/.vim')
+if !isdirectory(vim_dir)
+    echo "Creating ~/.vim/"
+    echo ""
+    silent !mkdir -p ~/.vim
+    let createVimDir=0
+endif
 
-" vim pathogen
-"   https://github.com/tpope/vim-pathogen
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins                                                                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setting up Vundle - the vim plugin bundler
+let installVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let installVundle=0
+endif
 
-" NERDTree
-"   https://github.com/scrooloose/nerdtree
+" Required settings for Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
 
-" vim fugitive
-"   https://github.com/tpope/vim-fugitive
-
-" ctl-p
-"   https://github.com/kien/ctrlp.vim
-
-" exuberant ctags
-"   http://ctags.sourceforge.net/
-
-" cscope
-"   sudo port install cscope
-"   http://cscope.sourceforge.net/ (project web page)
-"   http://cscope.sourceforge.net/cscope_maps.vim (add to ~/.vim/bundle/)
-"   vim tutorial: http://cscope.sourceforge.net/cscope_vim_tutorial.html
+" Plugins
+Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdtree'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'anzaika/go.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General viewing                                                             "
@@ -33,7 +50,7 @@ set backspace=start,eol,indent
 set background=dark
 
 " pathogen
-call pathogen#infect()
+" call pathogen#infect()
 
 "Git branch
 function! GitBranch()
@@ -45,11 +62,13 @@ function! GitBranch()
 endfunction
 
 " Format the statusline
-set statusline=%F%m%r%h%w\%{GitBranch()}\ [LINE=%l(%v)]\ [%p%%]\ [LEN=%L]\ [FORMAT=%{&ff}]\ [TYPE=%Y]
-" set statusline=%F%m%r%h%w\ [POS=%l,%v]\ [%p%%]\ [LEN=%L]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [HEX=\%02.2B]
+" set statusline=%F%m%r%h%w\%{GitBranch()}\ [LINE=%l(%v)]\ [%p%%]\ [LEN=%L]\ [FORMAT=%{&ff}]\ [TYPE=%Y]
 
 " makes sure the status line displays automatically
 set laststatus=2
+
+" setup powerline symbols
+let g:Powerline_symbols = 'unicode'
 
 " set the text width to be 80 characters
 " set textwidth=80
@@ -179,3 +198,37 @@ au BufEnter,BufNew *.rb set shiftwidth=2
 " softtabstop makes the backspace key treat the four spaces like a tab
 set softtabstop=4
 au BufEnter,BufNew *.rb set softtabstop=2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keeping it clean                                                            "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let createVimTmp=1
+let vim_tmp=expand('~/.vim/tmp')
+if !isdirectory(vim_tmp)
+    echo "Creating ~/.vim/tmp"
+    echo ""
+    silent !mkdir -p ~/.vim/tmp
+    let createVimTmp=0
+endif
+
+" Don't drop swap and undo files all over the place
+set directory=~/.vim/tmp
+set undodir=~/.vim/tmp
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Gist                                                                        "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GitHub enterprise swag
+let g:github_api_url = 'https://github.etsycorp.com/api/v3'
+
+" Allow private gists to show in gist list
+let g:gist_show_privates = 1
+
+" Post a private gist
+map gpp :Gist -p<CR>
+
+" Post whole file to gist
+map gp :Gist<CR>
+
+" List gists
+map gl :Gist -l<CR>

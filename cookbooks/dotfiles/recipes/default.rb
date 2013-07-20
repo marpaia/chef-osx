@@ -10,10 +10,6 @@ cookbook_file "#{ENV['HOME']}/.git-completion.bash" do
   source "git-completion.bash"
 end
 
-remote_directory "#{ENV['HOME']}/.vim" do
-  source "vim"
-end
-
 remote_directory "#{ENV['HOME']}/.ssh" do
   source "ssh"
 end

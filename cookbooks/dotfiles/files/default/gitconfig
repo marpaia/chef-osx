@@ -22,3 +22,5 @@
     pager = less -FRSX --shift 5
 [merge]
     tool = opendiff
+[github]
+	user = marpaia
