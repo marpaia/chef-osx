@@ -24,3 +24,5 @@
     tool = opendiff
 [github]
 	user = marpaia
+[push]
+	default = simple
