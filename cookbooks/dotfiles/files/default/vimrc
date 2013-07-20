@@ -40,6 +40,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'anzaika/go.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'Townk/vim-autoclose'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General viewing                                                             "
