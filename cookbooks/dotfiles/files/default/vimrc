@@ -41,6 +41,11 @@ Bundle 'mattn/gist-vim'
 Bundle 'anzaika/go.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'Townk/vim-autoclose'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rvm'
+Bundle 'tpope/vim-commentary'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General viewing                                                             "
@@ -128,6 +133,9 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " set filetype for go files
 au BufRead,BufNewFile *.go set filetype=go
+
+" set commentary comment types
+autocmd FileType python set commentstring=#\ %s
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key maps                                                                    "
