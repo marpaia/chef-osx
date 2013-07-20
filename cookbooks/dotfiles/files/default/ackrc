@@ -1,0 +1,6 @@
+--type-set=smarty=.tpl
+--type-set=patch=.patch
+--type-set=txt=.txt
+--type-set=log=.log
+--smart-case
+--ignore-dir=tmp/templates/compile

@@ -14,6 +14,10 @@ remote_directory "#{ENV['HOME']}/.ssh" do
   source "ssh"
 end
 
+remote_directory "#{ENV['HOME']}/.ackrc" do
+  source "ackrc"
+end
+
 package "tmux" do
   action :install
   version "1.8"
