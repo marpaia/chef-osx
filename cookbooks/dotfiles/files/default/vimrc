@@ -179,7 +179,6 @@ set undoreload=10000
 " Key maps                                                                    "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " toggle spell checking
-map <C-a> :set spell!<CR>
 map <C-c> <nop>
 map <C-c> :set spell!<CR>
 
