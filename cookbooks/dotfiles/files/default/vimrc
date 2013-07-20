@@ -116,7 +116,6 @@ au BufRead,BufNewFile *.tpl set filetype=smarty
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General code writing                                                        "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " fold based on indent
 set foldmethod=indent
 
@@ -151,6 +150,13 @@ set undoreload=10000
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key maps                                                                    "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" toggle spell checking
+map <C-c> <nop>
+map <C-c> :set spell!<CR>
+
+" Remap VIM 0 to first non-blank character
+map 0 ^
+
 " Turning off the <F1> help
 nmap <F1> <nop>
 
@@ -194,6 +200,11 @@ map <F11> 0
 " jump to the end of the line
 map <F12> $
 
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic                                                                   "
