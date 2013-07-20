@@ -137,6 +137,15 @@ au BufRead,BufNewFile *.go set filetype=go
 " set commentary comment types
 autocmd FileType python set commentstring=#\ %s
 
+" set permanent undo files
+set undofile
+
+" maximum number of changes that can be undone
+set undolevels=1000
+
+" maximum number lines to save for undo on a buffer reload
+set undoreload = 10000
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key maps                                                                    "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
