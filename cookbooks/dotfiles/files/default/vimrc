@@ -40,7 +40,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'anzaika/go.vim'
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-rails'
@@ -137,6 +137,7 @@ au BufRead,BufNewFile *.go set filetype=go
 
 " set commentary comment types
 autocmd FileType python set commentstring=#\ %s
+autocmd FileType ruby set commentstring=#\ %s
 
 " set permanent undo files
 set undofile
@@ -198,17 +199,17 @@ map <F12> $
 " Syntastic                                                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-"let g:syntastic_check_on_open=1
-"let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_check_on_open=1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_loc_list_height=5
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
 
 " set the checkers
-let g:syntastic_python_checkers=['pylint']
+" let g:syntastic_python_checkers=['pylint']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation and spacing                                                     "
