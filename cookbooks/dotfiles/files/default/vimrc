@@ -1,4 +1,23 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Maintainer:                                                                 "
+"     Mike Arpaia                                                             "
+"     mike@arpaia.co                                                          "
+"     http://arpaia.co                                                        "
+"                                                                             "
+" To use:                                                                     "
+"    - Copy this file to ~/.vimrc                                             "
+"    - Open vim                                                               "
+"                                                                             "
+" Keep in mind:                                                               "
+"    - If you have a ~/.vim directory, it might be a good idea to delete it   "
+"      before you use this vimrc as this vimrc will automatically create the  "
+"      appropriate directory structure that it needs                          "
+"    - This vimrc uses vundle to install plugins from github (via git) so it  "
+"      should go without saying that you'll need git installed on your host   "
+"      in order for this to work                                              "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Initial setup                                                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let createVimDir=1
@@ -17,11 +36,16 @@ endif
 let installVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
+    echo "Sit tight! I'm going to install Vundle and a few plugins for you!"
+    echo ""
+    echo ""
     echo "Installing Vundle.."
     echo ""
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    " silent !vim +BundleInstall +qall
+    echo "Installing plugins.."
+    echo ""
+    silent !vim +BundleInstall +qall
     let installVundle=0
 endif
 
