@@ -28,8 +28,6 @@ python_pip "PyChecker"
 
 python_pip "matplotlib"
 
-python_pip "basemap"
-
 python_pip "sympy"
 
 python_pip "tornado"
@@ -39,11 +37,5 @@ python_pip "pyzmq"
 python_pip "networkx"
 
 python_pip "pandas"
-
-python_pip "PIL"
-
-python_pip "PySide"
-
-python_pip "PyQt"
 
 python_pip "Cython"
