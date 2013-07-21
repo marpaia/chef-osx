@@ -29,3 +29,7 @@ python_pip "PyChecker"
 python_pip "matplotlib"
 
 python_pip "sympy"
+
+python_pip "tornado"
+
+python_pip "pyzmq"
