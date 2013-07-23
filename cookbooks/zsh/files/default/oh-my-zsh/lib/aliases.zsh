@@ -55,7 +55,6 @@ alias dep="cd $DEV/Deployinator/; ls"
 alias cds="cd $DEV/security/; ls"
 alias dev="cd $DEV; ls"
 alias cdc="cd $DEV/chef; ls"
-alias chef="cd $DEV/chef; ls"
 alias gistdiff="git diff origin|gist -t diff"
 alias s="ssh vm"
 alias vm="ssh vm"
@@ -70,7 +69,7 @@ alias po='popd'
 # Basic directory operations
 alias ...='cd ../..'
 alias -- -='cd -'
-alias chef="cd ~/github/chef-osx/"
+alias chef="cd ~/github/chef-osx/; ls"
 
 # Super user
 alias _='sudo'
