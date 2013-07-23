@@ -1,6 +1,6 @@
 package "php54" do
   action :install
-  version "5.4.15"
+  version "5.4.16"
 end
 
 package "php54-apc" do
