@@ -10,10 +10,10 @@ curl -L https://opscode.com/chef/install.sh | sudo bash
 sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef
 sudo mkdir -p /usr/local && sudo chown -R `whoami`:staff /usr/local
 # Check out the repo
-mkdir ~/github && cd ~/github
+mkdir -p ~/github && cd ~/github
 git clone git@github.com:marpaia/chef-osx.git
-cd ~/github/chef-osx
 # Run chef-solo
+cd ~/github/chef-osx
 chef-solo -c client.rb -j roles/mac_os_x.json
 ```
 
