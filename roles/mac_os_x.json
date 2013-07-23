@@ -30,6 +30,7 @@
         "recipe[dotfiles]",
         "recipe[zsh]",
         "recipe[commandlinetools::weechat]",
+        "recipe[weechat::configs]"
         "recipe[spotify]",
         "recipe[commandlinetools::rvm]",
         "recipe[apache]",
