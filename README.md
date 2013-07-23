@@ -20,7 +20,7 @@ chef-solo -c client.rb -j roles/mac_os_x.json
 
 If you'd like to keep this chef repository somewhere besides `~/github`, modify
 the value for `cookbook_path` in `client.rb`. If you'd like to run a particular subset of the cookbooks in this chef repository, modify `roles/mac_os_x.json` or
-create a new role json files with a custom run_list.
+create a new role json file with a more customized run_list.
 
 Considerations
 ==============
