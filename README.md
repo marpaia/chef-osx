@@ -5,7 +5,7 @@ To use
 - Install valid Chef certificates and configurations
 - ``sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef``
 - ``sudo mkdir -p /usr/local && sudo chown -R `whoami`:staff /usr/local``
-- `chef-client`
+- `chef-client -c client.rb -j roles/mac_os_x.json`
 
 Considerations
 ==============
