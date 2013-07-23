@@ -48,6 +48,7 @@
         "recipe[python::ipython]",
         "recipe[go]",
         "recipe[go::filesystem]",
+        "recipe[go::get]",
         "recipe[github]",
         "recipe[github::repos]",
         "recipe[casperjs]",
