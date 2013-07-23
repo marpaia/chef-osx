@@ -29,7 +29,7 @@
         "recipe[dotfiles]",
         "recipe[zsh]",
         "recipe[commandlinetools::weechat]",
-        "recipe[weechat::configs]"
+        "recipe[weechat::configs]",
         "recipe[spotify]",
         "recipe[commandlinetools::rvm]",
         "recipe[apache]",
@@ -47,6 +47,7 @@
         "recipe[python::pylint]",
         "recipe[python::ipython]",
         "recipe[go]",
+        "recipe[go::filesystem]",
         "recipe[github]",
         "recipe[github::repos]",
         "recipe[casperjs]",
