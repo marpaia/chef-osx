@@ -70,6 +70,7 @@ alias po='popd'
 # Basic directory operations
 alias ...='cd ../..'
 alias -- -='cd -'
+alias chef="cd ~/github/chef-osx/"
 
 # Super user
 alias _='sudo'
