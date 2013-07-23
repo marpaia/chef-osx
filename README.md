@@ -5,6 +5,8 @@ To use
 - Install valid Chef certificates and configurations
 - ``sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef``
 - ``sudo mkdir -p /usr/local && sudo chown -R `whoami`:staff /usr/local``
+- Modify `client.rb` to point to your `cookbooks` directory
+- Modify the `roles/mac_os_x.json` file to only run the recipes that you'd like it to
 - `chef-solo -c client.rb -j roles/mac_os_x.json`
 
 Considerations
