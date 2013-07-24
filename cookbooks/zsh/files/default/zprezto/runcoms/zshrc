@@ -1,0 +1,129 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# List direcory contents
+alias l='ls'
+alias la='ls -A'
+alias ll='ls -l'
+alias lla='ls -lAh'
+alias lal='ls -lAh'
+alias sl=ls
+
+# Applications
+alias chrome="open /Applications/Google\ Chrome.app/"
+alias twitter="open /Applications/Tweetbot.app/"
+alias firefox="open /Applications/Firefox.app/"
+alias mail="open /Applications/Mail.app/"
+alias cal="open /Applications/iCal.app/"
+alias ical="open /Applications/iCal.app/"
+alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+alias burp="nohup java -jar -Xmx1g ~/Tools/burp.jar > /dev/null&"
+alias w="weechat-curses"
+alias weechat="weechat-curses"
+
+# Commands
+alias cls="clear"
+alias mak="make"
+
+# Python
+alias pythong="python"
+alias pytho="python"
+alias p="ipython"
+alias i="ipython"
+alias ip="ipython"
+
+# Finder
+alias showall="defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder"
+alias hideall="defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder"
+
+# Work
+DEV="~/development"
+WEB="$DEV/Etsyweb"
+alias try="try -P"
+alias ew="cd $WEB; ls"
+alias web="cd $WEB; ls"
+alias cde="cd $WEB; ls"
+alias cdp="cd $WEB/phplib; ls"
+alias phplib="cd $WEB/phplib; ls"
+alias pl="cd $WEB/phplib; ls"
+alias ec="cd $WEB/phplib/EtsyConfig; ls"
+alias htd="cd $WEB/htdocs; ls"
+alias tem="cd $WEB/templates; ls"
+alias temp="cd $WEB/templates; ls"
+alias ast="cd $WEB/htdocs/assets; ls"
+alias css="cd $WEB/htdocs/assets/css; ls"
+alias js="cd $WEB/htdocs/assets/js; ls"
+alias dt="cd $DEV/DevTools/; ls"
+alias dep="cd $DEV/Deployinator/; ls"
+alias cds="cd $DEV/security/; ls"
+alias dev="cd $DEV; ls"
+alias cdc="cd $DEV/chef; ls"
+alias chef="cd ~/github/chef-osx; ls"
+alias gistdiff="git diff origin|gist -t diff"
+alias s="ssh vm"
+alias vm="ssh vm"
+alias sec="ssh sec"
+alias sec01="ssh sec01"
+alias sec03="ssh sec03"
+
+export SVN_EDITOR=vim
+export EDITOR=vim
+
+function zsh_stats() {
+  history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
+}
+
+function uninstall_oh_my_zsh() {
+  /usr/bin/env ZSH=$ZSH /bin/sh $ZSH/tools/uninstall.sh
+}
+
+function upgrade_oh_my_zsh() {
+  /usr/bin/env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh
+}
+
+function take() {
+  mkdir -p $1
+  cd $1
+}
+
+cdd(){ cd ~/Desktop/; }
+
+cdg(){ cd ~/github/; }
+
+dope(){ echo "no doubt"; }
+
+t(){ tail -f $1 | lolcat; }
+
+ff(){ find ./ -name *$1* 2>/dev/null; }
+
+export GITHUB_URL=https://github.etsycorp.com/
+
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;32'
+
+gg(){ eval 'grep -irnI --color "'"$@"'" ./ 2> /dev/null'; }
+
+export LC_ALL=en_US.utf-8
+export LANG="$LC_ALL"
+
+## pager
+export PAGER="less"
+export LESS="-R"
+
+export LC_CTYPE=$LANG
+
+export GOPATH=$HOME/go
+export PATH=/usr/local/Cellar/php54/5.4.15/bin/:/usr/local/share/python:~/Tools/casper/bin:~/pear/bin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:~/bin:~/github/phantomjs/bin:/opt/chef/bin/:$GOPATH/bin:/usr/local/go/bin/:$PATH
+
+if [ -f ~/.rvm/scripts/rvm ]; then source ~/.rvm/scripts/rvm; fi

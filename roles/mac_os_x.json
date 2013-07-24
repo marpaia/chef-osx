@@ -28,6 +28,7 @@
         "recipe[commandlinetools::tmux]",
         "recipe[dotfiles]",
         "recipe[zsh]",
+        "recipe[zsh::oh-my-zsh]",
         "recipe[commandlinetools::weechat]",
         "recipe[weechat::configs]",
         "recipe[spotify]",
