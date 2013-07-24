@@ -41,6 +41,6 @@ mac_os_x_userdefaults "com.apple.dock dashboard-in-overlay" do
   value 1
 end
 
-execute "killall Dock" do
-  command "killall Dock"
-end
+#execute "killall Dock" do
+#  command "killall Dock"
+#end

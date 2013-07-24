@@ -70,6 +70,6 @@ cookbook_file "#{ENV['HOME']}/Library/Preferences/com.apple.symbolichotkeys.plis
   source "com.apple.symbolichotkeys.plist"
 end
 
-execute "killall SystemUIServer" do
-  command "killall SystemUIServer"
-end
+#execute "killall SystemUIServer" do
+#  command "killall SystemUIServer"
+#end

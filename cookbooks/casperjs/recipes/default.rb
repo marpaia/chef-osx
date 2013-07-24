@@ -1,6 +1,6 @@
 package "phantomjs" do
   action :install
-  version "1.9.0"
+  version "1.9.1"
 end
 
 package "casperjs" do

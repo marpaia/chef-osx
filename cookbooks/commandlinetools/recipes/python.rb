@@ -1,6 +1,6 @@
 package "gmp" do
   action :install
-  version "5.1.1"
+  version "5.1.2"
 end
 
 package "libmpc" do
@@ -15,5 +15,5 @@ end
 
 package "gfortran" do
   action :install
-  version "4.8.0"
+  version "4.8.1"
 end

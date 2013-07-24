@@ -1,6 +1,6 @@
 package "cmake" do
   action :install
-  version "2.8.11"
+  version "2.8.11.2"
 end
 
 package "aspell" do

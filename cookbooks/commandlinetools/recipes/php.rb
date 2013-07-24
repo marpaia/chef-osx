@@ -5,5 +5,5 @@ end
 
 package "pcre" do
   action :install
-  version "8.32"
+  version "8.33"
 end

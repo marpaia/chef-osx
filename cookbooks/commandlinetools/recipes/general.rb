@@ -15,5 +15,5 @@ end
 
 package "hg" do
   action :install
-  version "2.6.1"
+  version "2.6.3"
 end

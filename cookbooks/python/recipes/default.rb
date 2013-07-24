@@ -10,6 +10,11 @@ package "python3" do
   options("--universal")
 end
 
+execute "move the system python" do
+  command "sudo mv /usr/bin/python /usr/bin/python-original"
+  only_if {File.exists?("/usr/bin/python")}
+end
+
 #execute "remove default python" do
 #  command "sudo rm -r /System/Library/Frameworks/Python.framework/Versions/Current"
 #  only_if "ll /System/Library/Frameworks/Python.framework/Versions/Current | grep '/usr/local/Cellar/python'"

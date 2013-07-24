@@ -5,7 +5,7 @@ end
 
 package "automake" do
   action :install
-  version "1.13.2"
+  version "1.14"
 end
 
 package "libtool" do

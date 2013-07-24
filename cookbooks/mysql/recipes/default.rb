@@ -1,6 +1,6 @@
 package "mysql" do
   action :install
-  version "5.6.10"
+  version "5.6.12"
   options("--enable-memcached")
 end
 
