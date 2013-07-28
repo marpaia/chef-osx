@@ -72,7 +72,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rvm'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 Bundle 'msanders/snipmate.vim'
 Bundle 'sontek/minibufexpl.vim'
 
