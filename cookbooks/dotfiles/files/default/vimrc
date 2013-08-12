@@ -215,6 +215,7 @@ au BufEnter,BufNew *.py map <F8> :w<CR>:!clear && python %<CR>
 au BufEnter,BufNew *.rb map <F8> :w<CR>:!clear && ruby %<CR>
 au BufEnter,BufNew *.io map <F8> :w<CR>:!clear && io %<CR>
 au BufEnter,BufNew *.sh map <F8> :w<CR>:!clear && bash %<CR>
+au BufEnter,BufNew *.go map <F8> :w<CR>:!clear && go run %<CR>
 
 " jump back one word
 map <F9> b
