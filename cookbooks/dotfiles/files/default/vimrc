@@ -72,8 +72,11 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rvm'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
-"Bundle 'ervandew/supertab'
-Bundle 'msanders/snipmate.vim'
+Bundle 'ervandew/supertab'
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 Bundle 'sontek/minibufexpl.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
