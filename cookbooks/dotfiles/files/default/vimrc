@@ -92,7 +92,19 @@ set background=dark
 set laststatus=2
 
 " setup powerline symbols
-let g:Powerline_symbols = 'unicode'
+if expand($SHELL) =~ "bash$"
+    if expand($HOSTNAME) =~ "etsy.com"
+        let g:Powerline_symbols = 'compatible'
+    else
+        let g:Powerline_symbols = 'unicode'
+    endif
+elseif expand($SHELL) =~ "zsh$"
+    if expand($HOST) =~ "etsy.com"
+        let g:Powerline_symbols = 'compatible'
+    else
+        let g:Powerline_symbols = 'unicode'
+    endif
+endif
 
 " turn on syntax highlighting
 syntax on

@@ -62,6 +62,12 @@ alias sec="ssh sec"
 alias sec01="ssh sec01"
 alias sec03="ssh sec03"
 
+# Chef
+alias ksb="knife spork bump"
+alias ksu="knife spork upload"
+alias ksp="knife spork promote"
+alias role="knife role from file"
+
 # Push and pop directories on directory stack
 alias pu='pushd'
 alias po='popd'
