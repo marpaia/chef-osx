@@ -129,6 +129,9 @@ endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
+" Read man pages in vim
+runtime ftplugin/man.vim
+
 " Show and clear all extraneous whitespace automatically
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
