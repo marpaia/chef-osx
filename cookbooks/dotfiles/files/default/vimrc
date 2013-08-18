@@ -33,7 +33,7 @@ endif
 " Plugins                                                                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setting up Vundle - the vim plugin bundler
-let installVundle=1
+let installVundle=0
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
     echo "Sit tight! I'm going to install Vundle and a few plugins for you!"
@@ -46,38 +46,42 @@ if !filereadable(vundle_readme)
     echo "Installing plugins.."
     echo ""
     silent !vim +BundleInstall +qall
-    let installVundle=0
+    let installVundle=1
+else
+    let installVundle=1
 endif
 
-" Required settings for Vundle
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+if installVundle
+    " Required settings for Vundle
+    filetype off
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+    Bundle 'gmarik/vundle'
 
-" Plugins
-Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/nerdtree'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'marpaia/go.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'Townk/vim-autoclose'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-rvm'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-surround'
-Bundle 'ervandew/supertab'
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'sontek/minibufexpl.vim'
+    " Plugins
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'mattn/webapi-vim'
+    Bundle 'mattn/gist-vim'
+    Bundle 'marpaia/go.vim'
+    Bundle 'scrooloose/syntastic'
+    Bundle 'Townk/vim-autoclose'
+    Bundle 'tpope/vim-eunuch'
+    Bundle 'tpope/vim-rails'
+    Bundle 'tpope/vim-surround'
+    Bundle 'tpope/vim-rvm'
+    Bundle 'tpope/vim-commentary'
+    Bundle 'tpope/vim-surround'
+    Bundle 'ervandew/supertab'
+    Bundle 'tomtom/tlib_vim'
+    Bundle 'MarcWeber/vim-addon-mw-utils'
+    Bundle 'garbas/vim-snipmate'
+    Bundle 'honza/vim-snippets'
+    Bundle 'sontek/minibufexpl.vim'
+end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General viewing                                                             "
@@ -159,6 +163,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 " set the filetype for Smarty files
 au BufRead,BufNewFile *.tpl set filetype=smarty
 
+" set filetype for go files
+au BufRead,BufNewFile *.go set filetype=go
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General code writing                                                        "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -173,12 +180,6 @@ set nofoldenable
 
 " set the foldlevel
 " set foldlevel=1
-
-" PHP auto-complete
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
-" set filetype for go files
-au BufRead,BufNewFile *.go set filetype=go
 
 " set commentary comment types
 autocmd FileType python set commentstring=#\ %s
@@ -207,7 +208,9 @@ map 0 ^
 nmap <F1> <nop>
 
 " toggle NERDTree
-nmap <F1> :NERDTreeToggle<CR>
+if isdirectory('~/.vim/bundle/nerdtree')
+    nmap <F1> :NERDTreeToggle<CR>
+end
 
 " switch between NERDTree and the open file
 map <F2> <C-w><C-w>
@@ -256,18 +259,19 @@ map <C-l> <C-W>l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic                                                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if isdirectory('~/.vim/bundle/syntastic')
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+    let g:syntastic_check_on_open=1
+    let g:syntastic_auto_loc_list=1
+    let g:syntastic_loc_list_height=5
+    let g:syntastic_error_symbol='E'
+    let g:syntastic_warning_symbol='W'
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_check_on_open=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_error_symbol='E'
-let g:syntastic_warning_symbol='W'
-
-" set the checkers
-let g:syntastic_python_checkers=['pylint']
+    " set the checkers
+    let g:syntastic_python_checkers=['pylint']
+end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation and spacing                                                     "
@@ -297,33 +301,39 @@ au BufEnter,BufNew *.rb set softtabstop=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keeping it clean                                                            "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let createVimTmp=1
+let createVimTmp=0
 let vim_tmp=expand('~/.vim/tmp')
 if !isdirectory(vim_tmp)
     echo "Creating ~/.vim/tmp"
     echo ""
     silent !mkdir -p ~/.vim/tmp
-    let createVimTmp=0
+    let createVimTmp=1
+else
+    let createVimTmp=1
 endif
 
 " Don't drop swap and undo files all over the place
-set directory=~/.vim/tmp
-set undodir=~/.vim/tmp
+if createVimTmp
+    set directory=~/.vim/tmp
+    set undodir=~/.vim/tmpend
+end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gist                                                                        "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GitHub enterprise swag
-let g:github_api_url = 'https://github.etsycorp.com/api/v3'
+if isdirectory('~/.vim/bundle/gist-vim')
+    " GitHub enterprise swag
+    let g:github_api_url = 'https://github.etsycorp.com/api/v3'
 
-" Allow private gists to show in gist list
-let g:gist_show_privates = 1
+    " Allow private gists to show in gist list
+    let g:gist_show_privates = 1
 
-" Post a private gist
-map gpp :Gist -p<CR>
+    " Post a private gist
+    map gpp :Gist -p<CR>
 
-" Post whole file to gist
-map gp :Gist<CR>
+    " Post whole file to gist
+    map gp :Gist<CR>
 
-" List gists
-map gl :Gist -l<CR>
+    " List gists
+    map gl :Gist -l<CR>
+end
