@@ -81,6 +81,7 @@ if installVundle
     Bundle 'garbas/vim-snipmate'
     Bundle 'honza/vim-snippets'
     Bundle 'sontek/minibufexpl.vim'
+    Bundle 'kien/rainbow_parentheses.vim'
 end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -194,9 +195,23 @@ set undolevels=1000
 " maximum number lines to save for undo on a buffer reload
 set undoreload=10000
 
+" rainbow parentheses always on
+if isdirectory('~/.vim/bundle/rainbow_parentheses.vim')
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+end
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key maps                                                                    "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set the leader to the , key
+let mapleader = ","
+
+" map ; to be the same thing as : in normal mode
+nnoremap ; :
+
 " toggle spell checking
 map <C-c> <nop>
 map <C-c> :set spell!<CR>
