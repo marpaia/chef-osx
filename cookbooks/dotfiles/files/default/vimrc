@@ -189,14 +189,6 @@ map 0 ^
 " Turning off the <F1> help
 nmap <F1> <nop>
 
-" toggle NERDTree
-if isdirectory('~/.vim/bundle/nerdtree')
-    nmap <F1> :NERDTreeToggle<CR>
-end
-
-" switch between NERDTree and the open file
-map <F2> <C-w><C-w>
-
 " tab left
 map <F3> gT
 
@@ -400,3 +392,16 @@ if isdirectory('~/.vim/bundle/rainbow_parentheses.vim')
     au Syntax * RainbowParenthesesLoadSquare
     au Syntax * RainbowParenthesesLoadBraces
 end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree                                                                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if isdirectory('~/.vim/bundle/nerdtree')
+    " toggle NERDTree
+    nmap <F1> :NERDTreeToggle<CR>
+end
+
+" switch between NERDTree and the open file
+map <F2> <C-w><C-w>
+
