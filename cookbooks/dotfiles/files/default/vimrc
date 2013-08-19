@@ -20,6 +20,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Initial setup                                                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let createVimDir=1
 let vim_dir=expand('~/.vim')
 if !isdirectory(vim_dir)
@@ -32,6 +33,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins                                                                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Setting up Vundle - the vim plugin bundler
 let installVundle=0
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -88,6 +90,7 @@ end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General viewing                                                             "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " fix backspace
 set backspace=start,eol,indent
 
@@ -144,6 +147,7 @@ au BufRead,BufNewFile *.markdown set filetype=markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General code writing                                                        "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " fold based on indent
 set foldmethod=indent
 
@@ -173,6 +177,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key maps                                                                    "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " set the leader to the , key
 let mapleader = ","
 
@@ -306,6 +311,7 @@ end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gist                                                                        "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 if isdirectory('~/.vim/bundle/gist-vim')
     " GitHub enterprise swag
     let g:github_api_url = 'https://github.etsycorp.com/api/v3'
@@ -326,6 +332,7 @@ end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline                                                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 if isdirectory('~/.vim/bundle/vim-powerline')
     " setup powerline symbols
     if expand($SHELL) =~ "bash$"
@@ -367,6 +374,7 @@ end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic                                                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 if isdirectory('~/.vim/bundle/syntastic')
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
@@ -404,4 +412,3 @@ end
 
 " switch between NERDTree and the open file
 map <F2> <C-w><C-w>
-
