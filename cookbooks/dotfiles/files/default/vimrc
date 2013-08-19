@@ -97,21 +97,6 @@ set background=dark
 " makes sure the status line displays automatically
 set laststatus=2
 
-" setup powerline symbols
-if expand($SHELL) =~ "bash$"
-    if expand($HOSTNAME) =~ "etsy.com"
-        let g:Powerline_symbols = 'compatible'
-    else
-        let g:Powerline_symbols = 'unicode'
-    endif
-elseif expand($SHELL) =~ "zsh$"
-    if expand($HOST) =~ "etsy.com"
-        let g:Powerline_symbols = 'compatible'
-    else
-        let g:Powerline_symbols = 'unicode'
-    endif
-endif
-
 " turn on syntax highlighting
 syntax on
 
@@ -132,23 +117,6 @@ set hlsearch
 
 " Automatically display line number
 set number
-
-" faster find for ctl-p
-let g:ctrlp_user_command = 'find %s -type f'
-
-" set ignore directories for ctl-p
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*,*/.hg/*,*/.svn/*
-
-" Relative number toggling
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
 
 " Read man pages in vim
 runtime ftplugin/man.vim
@@ -192,28 +160,15 @@ set nofoldenable
 autocmd FileType python set commentstring=#\ %s
 autocmd FileType ruby set commentstring=#\ %s
 
-" set permanent undo files
-set undofile
-
-" maximum number of changes that can be undone
-set undolevels=1000
-
-" maximum number lines to save for undo on a buffer reload
-set undoreload=10000
-
-" rainbow parentheses always on
-if isdirectory('~/.vim/bundle/rainbow_parentheses.vim')
-    au VimEnter * RainbowParenthesesToggle
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
-end
-
 " turn on gocode completion
 filetype plugin indent on
 
 " automatically format go files on save
 au FileType go au BufWritePre <buffer> Fmt
+
+" auto close the omnicomplete window
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key maps                                                                    "
@@ -237,11 +192,6 @@ nmap <F1> <nop>
 " toggle NERDTree
 if isdirectory('~/.vim/bundle/nerdtree')
     nmap <F1> :NERDTreeToggle<CR>
-end
-
-" set context for supertab
-if isdirectory('~/.vim/bundle/supertab')
-    let g:SuperTabDefaultCompletionType = "context"
 end
 
 " switch between NERDTree and the open file
@@ -294,26 +244,16 @@ map <C-l> <C-W>l
 :inoremap  <nop>
 :inoremap  
 
-" auto close the omnicomplete window
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" Relative number toggling
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic                                                                   "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if isdirectory('~/.vim/bundle/syntastic')
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    let g:syntastic_check_on_open=1
-    let g:syntastic_auto_loc_list=1
-    let g:syntastic_loc_list_height=5
-    let g:syntastic_error_symbol='E'
-    let g:syntastic_warning_symbol='W'
-
-    " set the checkers
-    let g:syntastic_python_checkers=['pylint']
-end
+nnoremap <C-n> :call NumberToggle()<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation and spacing                                                     "
@@ -342,8 +282,18 @@ set softtabstop=4
 au BufEnter,BufNew *.rb set softtabstop=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Keeping it clean                                                            "
+" Vim artifact files                                                          "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" set permanent undo files
+set undofile
+
+" maximum number of changes that can be undone
+set undolevels=1000
+
+" maximum number lines to save for undo on a buffer reload
+set undoreload=10000
+
 let createVimTmp=0
 let vim_tmp=expand('~/.vim/tmp')
 if !isdirectory(vim_tmp)
@@ -379,4 +329,74 @@ if isdirectory('~/.vim/bundle/gist-vim')
 
     " List gists
     map gl :Gist -l<CR>
+end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Powerline                                                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if isdirectory('~/.vim/bundle/vim-powerline')
+    " setup powerline symbols
+    if expand($SHELL) =~ "bash$"
+        if expand($HOSTNAME) =~ "etsy.com"
+            let g:Powerline_symbols = 'compatible'
+        else
+            let g:Powerline_symbols = 'unicode'
+        endif
+    elseif expand($SHELL) =~ "zsh$"
+        if expand($HOST) =~ "etsy.com"
+            let g:Powerline_symbols = 'compatible'
+        else
+            let g:Powerline_symbols = 'unicode'
+        endif
+    endif
+end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ctrl-p                                                                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if isdirectory('~/.vim/bundle/ctrlp.vim')
+    " faster find for ctrl-p
+    let g:ctrlp_user_command = 'find %s -type f'
+
+    " set ignore directories for ctl-p
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*,*/.hg/*,*/.svn/*
+end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Supertab                                                                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if isdirectory('~/.vim/bundle/supertab')
+    " set context for supertab
+    let g:SuperTabDefaultCompletionType = "context"
+end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic                                                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if isdirectory('~/.vim/bundle/syntastic')
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+    let g:syntastic_check_on_open=1
+    let g:syntastic_auto_loc_list=1
+    let g:syntastic_loc_list_height=5
+    let g:syntastic_error_symbol='E'
+    let g:syntastic_warning_symbol='W'
+
+    " set the checkers
+    let g:syntastic_python_checkers=['pylint']
+end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rainbow parentheses                                                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if isdirectory('~/.vim/bundle/rainbow_parentheses.vim')
+    " rainbow parentheses always on
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
 end
