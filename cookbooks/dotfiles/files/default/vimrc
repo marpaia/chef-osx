@@ -85,6 +85,8 @@ if installVundle
     Bundle 'honza/vim-snippets'
     Bundle 'sontek/minibufexpl.vim'
     Bundle 'kien/rainbow_parentheses.vim'
+    Bundle 'xolox/vim-misc'
+    " Bundle 'vim-scripts/easytags.vim'
 end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -307,6 +309,35 @@ if createVimTmp
     set directory=~/.vim/tmp
     set undodir=~/.vim/tmpend
 end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ctags                                                                       "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let createVimTags=0
+let vim_tags=expand('~/.vim/tags')
+if !isdirectory(vim_tags)
+    echo "Creating ~/.vim/tags"
+    echo ""
+    silent !mkdir -p ~/.vim/tags
+    let createVimTags=1
+else
+    let createVimTags=1
+endif
+
+"if isdirectory('~/.vim/bundle/easytags.vim')
+    " Set the tags file
+    " let g:easytags_file = '~/.vim/tags/tags'
+
+    " generate tags on file saves
+    " let g:easytags_events = ['BufWritePost']
+
+    " recurse directories
+    " let g:easytags_autorecurse = 1
+
+    " turn off the updatetime_warning
+    " let g:easytags_updatetime_warn = 0
+"end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gist                                                                        "
