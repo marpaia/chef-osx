@@ -87,6 +87,7 @@ if installVundle
     Bundle 'kien/rainbow_parentheses.vim'
     Bundle 'xolox/vim-misc'
     " Bundle 'vim-scripts/easytags.vim'
+    Bundle 'flazz/vim-colorschemes'
 end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -446,3 +447,9 @@ end
 
 " switch between NERDTree and the open file
 map <F2> <C-w><C-w>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colorschemes                                                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+colorscheme paintbox
