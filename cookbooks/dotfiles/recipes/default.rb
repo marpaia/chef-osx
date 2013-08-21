@@ -22,3 +22,8 @@ package "tmux" do
   action :install
   version "1.8"
 end
+
+package "ctags" do
+  action :install
+  version "5.8"
+end
