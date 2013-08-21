@@ -190,6 +190,9 @@ nnoremap ; :
 map <leader>s <nop>
 map <leader>s :set spell!<CR>
 
+" map ,d to buffer close
+map <leader>d :bd<CR>
+
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
