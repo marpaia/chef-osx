@@ -311,7 +311,7 @@ endif
 " Don't drop swap and undo files all over the place
 if createVimTmp
     set directory=~/.vim/tmp
-    set undodir=~/.vim/tmpend
+    set undodir=~/.vim/tmp
 end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
