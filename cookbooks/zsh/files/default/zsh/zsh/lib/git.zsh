@@ -1,3 +1,40 @@
+#
+# Will return the current branch name
+# Usage example: git pull origin $(current_branch)
+#
+
+function gfast() {
+    git config --local --add zsh.hide-status 1
+}
+
+function gslow() {
+    git config --local --add zsh.hide-status 0
+}
+
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
+function current_repository() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo $(git remote -v | cut -d':' -f 2)
+}
+
+# these aliases take advantage of the previous function
+alias ggpull='git pull origin $(current_branch)'
+alias ggpush='git push origin $(current_branch)'
+alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
+
+# Pretty log messages
+function _git_log_prettily(){
+  if ! [ -z $1 ]; then
+    git log --pretty=$1
+  fi
+}
+alias glp="_git_log_prettily"
 # get the name of the branch we are on
 function git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
@@ -9,7 +46,7 @@ function git_prompt_info() {
 # Number of commits ahead
 parse_git_ahead() {
   local GIT_COMMITS_AHEAD=''
-  if [[ "$(git config --get oh-my-zsh.hide-status)" != "1" ]]; then
+  if [[ "$(git config --get zsh.hide-status)" != "1" ]]; then
     GIT_COMMITS_AHEAD=$(git status | grep 'Your branch is ahead' | awk {'print $9'})
     if [[ $GIT_COMMITS_AHEAD != '' ]]; then
       echo " +$GIT_COMMITS_AHEAD"
@@ -22,7 +59,7 @@ parse_git_dirty() {
   local SUBMODULE_SYNTAX=''
   local GIT_STATUS=''
   local CLEAN_MESSAGE='nothing to commit (working directory clean)'
-  if [[ "$(git config --get oh-my-zsh.hide-status)" != "1" ]]; then
+  if [[ "$(git config --get zsh.hide-status)" != "1" ]]; then
     if [[ $POST_1_7_2_GIT -gt 0 ]]; then
           SUBMODULE_SYNTAX="--ignore-submodules=dirty"
     fi
@@ -148,5 +185,3 @@ function git_compare_version() {
 POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 #clean up the namespace slightly by removing the checker function
 unset -f git_compare_version
-
-

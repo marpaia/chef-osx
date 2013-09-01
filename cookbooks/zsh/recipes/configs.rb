@@ -4,9 +4,9 @@ execute "change shell to zsh" do
 end
 
 cookbook_file "#{ENV['HOME']}/.zshrc" do
-  source "oh-my-zsh/zshrc"
+  source "zsh/zshrc"
 end
 
-remote_directory "#{ENV['HOME']}/.oh-my-zsh" do
-  source "oh-my-zsh/oh-my-zsh"
+remote_directory "#{ENV['HOME']}/.zsh" do
+  source "zsh/zsh"
 end
