@@ -28,7 +28,7 @@
         "recipe[commandlinetools::tmux]",
         "recipe[dotfiles]",
         "recipe[zsh]",
-        "recipe[zsh::oh-my-zsh]",
+        "recipe[zsh::configs]",
         "recipe[commandlinetools::weechat]",
         "recipe[weechat::configs]",
         "recipe[spotify]",
@@ -56,6 +56,7 @@
         "recipe[github]",
         "recipe[github::repos]",
         "recipe[casperjs]",
-        "recipe[r]"
+        "recipe[r]",
+        "recipe[neo4j]"
     ]
 }
