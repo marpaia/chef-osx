@@ -17,3 +17,8 @@ package "hg" do
   action :install
   version "2.6.3"
 end
+
+package "unrar" do
+  action :install
+  version "4.2.4"
+end
