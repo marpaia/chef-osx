@@ -1,6 +1,8 @@
 [user]
-    name = Mike Arpaia
-    email = mike@arpaia.co
+    name = marpaia
+    email = marpaia@etsy.com
+    ghname = Mike Arpaia
+    gmemail = mike@arpaia.co
 [alias]
     st = status
     tags = tag

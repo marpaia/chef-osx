@@ -3,6 +3,11 @@
 # Usage example: git pull origin $(current_branch)
 #
 
+if (git remote -v 2>/dev/null | grep '^origin\b.*github.com.*(push)$' >/dev/null 2>&1); then
+    export GIT_AUTHOR_NAME=$(git config --global --get user.ghname)
+    export GIT_AUTHOR_EMAIL=$(git config --global --get user.ghemail)
+fi
+
 function gfast() {
     git config --local --add zsh.hide-status 1
 }

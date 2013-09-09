@@ -2,11 +2,11 @@ cdd(){ cd ~/Desktop/; }
 
 cdg(){ cd ~/github/; }
 
-cdgo(){ cd $GOPATH; }
+cdgo(){ cd $GOPATH/src; }
 
 gopath(){ cd $GOPATH; }
 
-gop(){ cd $GOPATH; }
+gop(){ cd $GOPATH/src; }
 
 dope(){ echo "no doubt"; }
 
