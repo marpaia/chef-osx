@@ -223,6 +223,7 @@ au BufEnter,BufNew *.io map <F8> :w<CR>:!clear && io %<CR>
 au BufEnter,BufNew *.sh map <F8> :w<CR>:!clear && bash %<CR>
 au BufEnter,BufNew *.zsh map <F8> :w<CR>:!clear && zsh %<CR>
 au BufEnter,BufNew *.go map <F8> :w<CR>:!clear && go run %<CR>
+au BufEnter,BufNew *_test.go map <F8> :w<CR>:!clear && go test -v<CR>
 
 " jump back one word
 map <F9> b
