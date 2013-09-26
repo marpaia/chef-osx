@@ -61,6 +61,8 @@ alias vm="ssh vm"
 alias sec="ssh sec"
 alias sec01="ssh sec01"
 alias sec03="ssh sec03"
+alias vango="ssh vango"
+alias toolbox="ssh toolbox"
 
 # Chef
 alias ksb="knife spork bump"

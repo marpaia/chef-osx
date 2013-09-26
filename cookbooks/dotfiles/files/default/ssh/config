@@ -10,6 +10,10 @@ Host sec01
     HostName sec01.ny4.etsy.com
     User marpaia
 
+Host vango
+    HostName vango.ny4.etsy.com
+    User marpaia
+
 Host toolbox
     HostName toolbox.ny4.etsy.com
     User marpaia
