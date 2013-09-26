@@ -457,4 +457,6 @@ map <F2> <C-w><C-w>
 " Colorschemes                                                                "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme enzyme
+if isdirectory('~/.vim/bundle/vim-colorschemes')
+    colorscheme enzyme
+end
