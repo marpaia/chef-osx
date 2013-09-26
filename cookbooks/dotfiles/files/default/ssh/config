@@ -11,7 +11,7 @@ Host sec01
     User marpaia
 
 Host vango
-    HostName vango.ny4.etsy.com
+    HostName vango01.ny4.etsy.com
     User marpaia
 
 Host toolbox
