@@ -42,7 +42,8 @@ load-plugins=
 
 # W0142 Used * or * magic* Used when a function or method is called using *args or **kwargs to dispatch arguments
 # W0403 Relative import
-disable=W0142,W0403
+# [W1201] Specify string format arguments as logging function parameters
+disable=W0142,W0403,W1201
 
 
 [REPORTS]
