@@ -17,3 +17,7 @@ Host vango
 Host toolbox
     HostName toolbox.ny4.etsy.com
     User marpaia
+
+Host tb
+    HostName 54.234.50.140
+    User marpaia
