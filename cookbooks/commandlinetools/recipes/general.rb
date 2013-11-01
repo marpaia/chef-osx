@@ -22,3 +22,8 @@ package "unrar" do
   action :install
   version "4.2.4"
 end
+
+package "git-extras" do
+  action :install
+  version "1.9.0"
+end
