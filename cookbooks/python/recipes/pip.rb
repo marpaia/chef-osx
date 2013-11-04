@@ -45,3 +45,5 @@ python_pip "rpy2"
 python_pip "rtools"
 
 python_pip "requests"
+
+python_pip "sh"
