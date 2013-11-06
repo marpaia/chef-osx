@@ -86,6 +86,7 @@ if installVundle
     Bundle 'sontek/minibufexpl.vim'
     Bundle 'kien/rainbow_parentheses.vim'
     Bundle 'xolox/vim-misc'
+    Bundle 'derekwyatt/vim-scala'
     " Bundle 'vim-scripts/easytags.vim'
     Bundle 'flazz/vim-colorschemes'
 end
