@@ -14,4 +14,4 @@ t(){ tail -f $1 | lolcat; }
 
 ff(){ find ./ -name *$1* 2>/dev/null; }
 
-function rm { for i; do if test -d $i; then /bin/rmdir $i; else /bin/rm $i; fi done;} }
+function rm { for i; do if test -d $i; then /bin/rmdir $i; else /bin/rm $i; fi done;}
