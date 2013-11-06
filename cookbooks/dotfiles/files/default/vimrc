@@ -89,6 +89,7 @@ if installVundle
     Bundle 'derekwyatt/vim-scala'
     " Bundle 'vim-scripts/easytags.vim'
     Bundle 'flazz/vim-colorschemes'
+    Bundle 'rdolgushin/play.vim'
 end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
