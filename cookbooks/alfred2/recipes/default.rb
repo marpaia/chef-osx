@@ -6,7 +6,7 @@ unless ::File.directory?("/Applications/Alfred.app")
   end
 
   execute "unzip alfred" do
-    command "unzip #{Chef::Config[:file_cache_path]}/Alfred_2.0.3_187.zip" 
+    command "unzip #{Chef::Config[:file_cache_path]}/Alfred_2.0.3_187.zip"
     cwd "/tmp"
     not_if { ::File.directory?("/Applications/Alfred 2.app") }
   end
@@ -14,7 +14,7 @@ unless ::File.directory?("/Applications/Alfred.app")
   execute "install alfred" do
     command "mv /tmp/Alfred\\ 2.app /Applications"
     not_if { ::File.directory?("/Applications/Alfred 2.app") }
-  end 
+  end
 
 end
 
