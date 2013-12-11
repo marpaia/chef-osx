@@ -86,7 +86,7 @@ if installVundle
     Bundle 'sontek/minibufexpl.vim'
     Bundle 'kien/rainbow_parentheses.vim'
     Bundle 'xolox/vim-misc'
-    Bundle 'derekwyatt/vim-scala'
+    " Bundle 'derekwyatt/vim-scala'
     " Bundle 'vim-scripts/easytags.vim'
     Bundle 'flazz/vim-colorschemes'
     Bundle 'rdolgushin/play.vim'
@@ -275,6 +275,7 @@ set autoindent
 " tabstop changes the width of the tab character
 set tabstop=4
 au BufEnter,BufNew *.rb set tabstop=2
+au BufEnter,BufNew *.scala set tabstop=2
 au BufEnter,BufNew *.html set tabstop=2
 
 " expandtab inserts spaces whenever the tab key is pressed
@@ -284,6 +285,7 @@ autocmd FileType go set noexpandtab
 " shiftwidth changes the number of space characters inserted for indentation
 set shiftwidth=4
 au BufEnter,BufNew *.rb set shiftwidth=2
+au BufEnter,BufNew *.scala set shiftwidth=2
 au BufEnter,BufNew *.html set shiftwidth=2
 
 " softtabstop makes the backspace key treat the four spaces like a tab
