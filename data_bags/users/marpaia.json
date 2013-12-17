@@ -14,5 +14,33 @@
         "go/bin",
         "go/pkg",
         "docs"
-    ]
+    ],
+    "python": {
+        "modules": [
+            "virtualenv",
+            "virtualenvwrapper",
+            "numpy",
+            "scipy",
+            "six",
+            "ipython",
+            "python-potr",
+            "gntp",
+            "SQLAlchemy",
+            "Flask",
+            "MySQL-python",
+            "httplib2",
+            "pygeoip",
+            "matplotlib",
+            "sympy",
+            "tornado",
+            "pyzmq",
+            "networkx",
+            "pandas",
+            "Cython",
+            "rpy2",
+            "rtools",
+            "requests",
+            "sh"
+        ]
+    }
 }
