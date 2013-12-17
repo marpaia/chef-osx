@@ -12,6 +12,7 @@
         "go/src/github.com",
         "go/src/github.com/marpaia",
         "go/bin",
-        "go/pkg"
+        "go/pkg",
+        "docs"
     ]
 }
