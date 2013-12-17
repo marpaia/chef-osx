@@ -17,7 +17,6 @@
         "recipe[python::docs]",
         "recipe[installerz::go]",
         "recipe[installerz::memcached]",
-        "recipe[iterm2]",
-        "recipe[installerz::gpg]"
+        "recipe[iterm2]"
     ]
 }
