@@ -15,6 +15,7 @@
         "recipe[installerz::wget]",
         "recipe[python]",
         "recipe[python::docs]",
-        "recipe[installerz::go]"
+        "recipe[installerz::go]",
+        "recipe[installerz::memcached]"
     ]
 }
