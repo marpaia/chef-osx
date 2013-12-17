@@ -12,6 +12,9 @@
         "recipe[installerz::tree]",
         "recipe[installerz::unrar]",
         "recipe[installerz::mysql]",
-        "recipe[installerz::wget]"
+        "recipe[installerz::wget]",
+        "recipe[python]",
+        "recipe[python::docs]",
+        "recipe[python::pip]"
     ]
 }
