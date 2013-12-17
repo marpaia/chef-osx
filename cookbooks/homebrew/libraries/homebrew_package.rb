@@ -1,13 +1,37 @@
-# Chef package provider for Homebrew
+#
+# Author:: Joshua Timberman (<jtimberman@opscode.com>)
+# Author:: Graeme Mathieson (<mathie@woss.name>)
+# Cookbook Name:: homebrew
+# Libraries:: homebrew_package
+#
+# Copyright 2011-2013, Opscode, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 require 'chef/provider/package'
 require 'chef/resource/package'
 require 'chef/platform'
+require 'chef/mixin/shell_out'
 
 class Chef
   class Provider
     class Package
       class Homebrew < Package
+
+        include Chef::Mixin::ShellOut
+        include ::Homebrew::Mixin
+
         def load_current_resource
           @current_resource = Chef::Resource::Package.new(@new_resource.name)
           @current_resource.package_name(@new_resource.package_name)
@@ -40,11 +64,14 @@ class Chef
         end
 
         def current_installed_version
-          get_version_from_command("brew list --versions | awk '/^#{@new_resource.package_name} / { print $2 }'")
+          pkg = get_version_from_formula
+          versions = pkg.to_hash['installed'].map {|v| v['version']}
+          versions.join(" ") unless versions.empty?
         end
 
         def candidate_version
-          get_version_from_command("brew info #{@new_resource.package_name} | awk '/^#{@new_resource.package_name} / { print $2 }'")
+          pkg = get_version_from_formula
+          pkg.stable.version.to_s || pkg.version.to_s
         end
 
         def get_version_from_command(command)
@@ -52,25 +79,29 @@ class Chef
           version.empty? ? nil : version
         end
 
-        # Nicked from lib/chef/package/provider/macports.rb and tweaked
-        # slightly.
+        def get_version_from_formula
+          brew_cmd = shell_out!("brew --prefix", :user => homebrew_owner)
+          libpath = ::File.join(brew_cmd.stdout.chomp, "Library", "Homebrew")
+          $:.unshift(libpath)
+
+          require 'global'
+          require 'cmd/info'
+
+          Formula.factory new_resource.package_name
+        end
+
         def get_response_from_command(command)
-          output = nil
-          status = popen4(command) do |pid, stdin, stdout, stderr|
-            begin
-              output = stdout.read
-            rescue Exception => e
-              raise Chef::Exceptions::Package, "Could not read from STDOUT on command: #{command}\nException: #{e.inspect}"
-            end
-          end
-          unless (0..1).include? status.exitstatus
-            raise Chef::Exceptions::Package, "#{command} failed - #{status.inspect}"
-          end
-          output
+          require 'etc'
+          home_dir = Etc.getpwnam(homebrew_owner).dir
+
+          Chef::Log.debug "Executing '#{command}' as #{homebrew_owner}"
+          output = shell_out!(command, :user => homebrew_owner, :environment => {'HOME' => home_dir})
+          output.stdout
         end
       end
     end
   end
 end
 
+Chef::Platform.set :platform => :mac_os_x_server, :resource => :package, :provider => Chef::Provider::Package::Homebrew
 Chef::Platform.set :platform => :mac_os_x, :resource => :package, :provider => Chef::Provider::Package::Homebrew

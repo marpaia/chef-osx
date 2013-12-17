@@ -1,0 +1,26 @@
+[user]
+    name = Mike Arpaia
+    email = mike@arpaia.co
+[alias]
+    st = status
+    tags = tag
+    branches = branch
+    ci = commit
+    co = checkout
+    cam = commit -am
+    cm = commit -m
+    br = branch
+    wu = log --stat origin..@{0}
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit
+    rpull = pull --rebase --stat
+    pullr = pull --rebase
+    unstage = reset
+[color]
+    ui = auto
+[core]
+    excludesfile = ~/.gitignore
+    pager = less -FRSX --shift 5
+[merge]
+    tool = opendiff
+[push]
+        default = simple

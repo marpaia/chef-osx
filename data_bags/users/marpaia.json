@@ -1,0 +1,17 @@
+{
+    "id": "marpaia",
+    "username": "marpaia",
+    "group": "staff",
+    "homedir": "/Users/marpaia",
+    "zsh": true,
+    "directories": [
+        "Tools",
+        "github",
+        "go",
+        "go/src",
+        "go/src/github.com",
+        "go/src/github.com/marpaia",
+        "go/bin",
+        "go/pkg"
+    ]
+}

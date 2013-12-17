@@ -2,7 +2,7 @@
 # Author:: Joshua Timberman (<jtimberman@opscode.com>)
 # Author:: Graeme Mathieson (<mathie@woss.name>)
 # Cookbook Name:: homebrew
-# Resources:: tap
+# Recipes:: default
 #
 # Copyright 2011-2013, Opscode, Inc.
 #
@@ -19,17 +19,11 @@
 # limitations under the License.
 #
 
-actions :tap, :untap
-attribute :name,
-  :name_attribute => true,
-  :kind_of        => String,
-  :regex          => /\w+(?:\/\w+)+/
+package 'git' do
+  not_if "which git"
+end
 
-attribute :tapped,
-  :kind_of => [TrueClass, FalseClass]
-
-### hax for default action
-def initialize( *args )
-  super
-  @action = :tap
+execute "update homebrew from github" do
+  user owner
+  command "/usr/local/bin/brew update || true"
 end

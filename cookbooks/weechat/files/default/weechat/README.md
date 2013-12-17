@@ -1,4 +1,0 @@
-weechat
-=======
-
-My weechat configs

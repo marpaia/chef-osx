@@ -2,7 +2,7 @@
 # Author:: Joshua Timberman (<jtimberman@opscode.com>)
 # Author:: Graeme Mathieson (<mathie@woss.name>)
 # Cookbook Name:: homebrew
-# Resources:: tap
+# Libraries:: homebrew_mixin
 #
 # Copyright 2011-2013, Opscode, Inc.
 #
@@ -19,17 +19,35 @@
 # limitations under the License.
 #
 
-actions :tap, :untap
-attribute :name,
-  :name_attribute => true,
-  :kind_of        => String,
-  :regex          => /\w+(?:\/\w+)+/
+module Homebrew
+  module Mixin
 
-attribute :tapped,
-  :kind_of => [TrueClass, FalseClass]
+    def homebrew_owner
+      @homebrew_owner ||= calculate_owner
+    end
 
-### hax for default action
-def initialize( *args )
-  super
-  @action = :tap
+    private
+
+    def calculate_owner
+      owner = homebrew_owner_attr || sudo_user || current_user
+      if owner == "root"
+        raise Chef::Exceptions::User,
+          "Homebrew owner is 'root' which is not supported. " +
+          "To set an explicit owner, please set node['homebrew']['owner']."
+      end
+      owner
+    end
+
+    def homebrew_owner_attr
+      node['homebrew']['owner']
+    end
+
+    def sudo_user
+      ENV['SUDO_USER']
+    end
+
+    def current_user
+      ENV['USER']
+    end
+  end
 end
