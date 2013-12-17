@@ -14,6 +14,7 @@
         "recipe[installerz::mysql]",
         "recipe[installerz::wget]",
         "recipe[python]",
-        "recipe[python::docs]"
+        "recipe[python::docs]",
+        "recipe[installerz::go]"
     ]
 }
