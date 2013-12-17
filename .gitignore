@@ -1,2 +1,3 @@
 *.swp
 one_off.json
+.DS_Store
